@@ -1,7 +1,7 @@
 # slot20
 Simple tool to find storage slots for ERC20 contracts. Trys both (key, slot), and (slot, key)
 
-[![asciicast](https://asciinema.org/a/Z91OEDoqFb6sVKfJkSxrjzb6r.svg)](https://asciinema.org/a/Z91OEDoqFb6sVKfJkSxrjzb6r)
+![](https://i.imgur.com/MpdgEmw.gif)
 
 # Usage
 
