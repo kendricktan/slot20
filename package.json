@@ -8,6 +8,9 @@
     "ora": "^5.4.1"
   },
   "main": "slot20.js",
+  "scripts": {
+    "test": "echo NO TESTS HAHA"
+  },
   "bin": {
     "slot20": "./slot20.js"
   },

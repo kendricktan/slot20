@@ -1,0 +1,53 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:12.16.1
+    steps:
+      - checkout
+      - run: |
+          yarn install
+          yarn test
+  publishDryRun:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - run:
+          name: Check Package Version Valid on NPM
+          command: ./.circleci/check_npm_version.sh
+
+  publish:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/.npmrc
+      - run:
+          name: Publish package
+          command: |
+            # Sometimes we just wanna update the readme file
+            if ./.circleci/check_npm_version.sh; then
+                npm publish --ignore-scripts --access public
+            fi
+workflows:
+  version: 2
+  test-publish:
+    jobs:
+      - test
+      - publishDryRun:
+          requires:
+            - test
+          filters:
+            branches:
+              ignore:
+                - master
+      - publish:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - master
