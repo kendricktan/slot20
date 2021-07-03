@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "commander": "^8.0.0",
+    "ethers": "^5.4.1",
+    "ora": "^5.4.1"
+  },
+  "main": "slot20.js",
+  "devDependencies": {
+    "eslint": "^7.30.0"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 2017
+    },
+    "env": {
+      "es6": true,
+      "node": true
+    }
+  }
+}
