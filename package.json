@@ -1,5 +1,6 @@
 {
   "version": "0.0.1",
+  "name": "slot20",
   "dependencies": {
     "chalk": "^4.1.1",
     "commander": "^8.0.0",
@@ -7,6 +8,9 @@
     "ora": "^5.4.1"
   },
   "main": "slot20.js",
+  "bin": {
+    "slot20": "./slot20.js"
+  },
   "devDependencies": {
     "eslint": "^7.30.0"
   },
